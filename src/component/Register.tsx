@@ -1,6 +1,8 @@
 import { AbsoluteCenter, Box, Button, Divider,  FormLabel, Heading, Input, Text  } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export const Register = () => {
   return (

@@ -1,18 +1,25 @@
 import { AbsoluteCenter, Box, Button, Divider, FormControl, FormLabel, Heading, Input, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { Form, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 interface ILogin{
     email:string
     password:string
 }
 export const Login = () => {
+    const schema=yup.object({
+        email:yup.string().required("Email is Required").email("Email format not match"),
+        password:yup.string().required("Password is Required")
+    })
     const { formState, register, handleSubmit } = useForm<ILogin>({
         defaultValues:{
             email:"",
             password:""
         },
-        mode:"onBlur"
+        resolver:yupResolver(schema),
+        mode:"all"
     })
     const {errors}=formState
    const onSubmit=(data:ILogin)=>{
@@ -46,13 +53,16 @@ export const Login = () => {
                                         required:"Email Address is required" 
                                         
                                     })}/>
-                                     <h1>
+                                     <Text color='red'>
                                     {errors&&errors.email?.message}
-                                    </h1>     
+                                    </Text>     
                                 </Box>
                                 <Box>
                                     <FormLabel>Password</FormLabel>
                                     <Input variant='filled' placeholder='Password' type='password' id='password'{...register("password",{required:true})} />
+                                    <p color='red'>
+                                    {errors&&errors.password?.message}
+                                    </p>
                                 </Box>
                                 <Box>
                                     <Link to="" >Forget Password?</Link>
