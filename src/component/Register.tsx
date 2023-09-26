@@ -1,5 +1,6 @@
-import { AbsoluteCenter, Box, Button, Divider, Link, FormLabel, Heading, Input } from '@chakra-ui/react'
+import { AbsoluteCenter, Box, Button, Divider,  FormLabel, Heading, Input, Text  } from '@chakra-ui/react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Register = () => {
   return (
@@ -32,6 +33,13 @@ export const Register = () => {
                 <FormLabel>Conform Password</FormLabel>
                 <Input variant='filled' placeholder='conform Password' type='password' />
             </Box>
+            <Box display={"flex"}>
+                <Text>i have already account..</Text>
+        <Link to={"/"}>
+        Login
+        </Link>
+      </Box>
+            
             <Box>
                 <Button variant={"outline"} width={"100%"} colorScheme='blue'>submit</Button>
             </Box>
