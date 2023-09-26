@@ -18,11 +18,11 @@ export const Login = () => {
                     <Box marginTop={10} display={"flex"} flexDirection={"column"} gap={6}>
                         <Box>
                         <FormLabel>E-mail</FormLabel>
-                        <Input variant='filled' placeholder='Filled'/>
+                        <Input variant='filled' placeholder='E-mail'/>
                         </Box>
                         <Box>
                         <FormLabel>Password</FormLabel>
-                        <Input variant='filled' placeholder='Filled' type='password'/>
+                        <Input variant='filled' placeholder='Password' type='password'/>
                         </Box>
                         <Box>
                             <Link >Forget Password?</Link>
